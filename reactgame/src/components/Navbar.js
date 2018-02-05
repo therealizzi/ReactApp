@@ -3,6 +3,7 @@ import React from "react";
 const styles = {
   navbarStyle: {
     position: "fixed",
+    zIndex: "1",
     width: "100%",
     background: "#3b4f65",
     color: "white",

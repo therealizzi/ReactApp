@@ -4,7 +4,7 @@ import { Container } from "reactstrap";
 const styles = {
   body: {
   	height: "125%",
-  	width: "80%"
+  	width: "90%"
   },
   anchorStyle: {
     float: "center"

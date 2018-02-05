@@ -7,18 +7,28 @@ import Hero from './components/Hero';
 import Body from './components/Body';
 import Cardbody from './components/Cardbody';
 import Footer from './components/Footer';
+import friends from './components/friends.json';
 
 class App extends Component {
-  render() {
-    const score = "You're score is: "
-    const scoreVal = "5"
 
+  state = {
+    friends
+  };
+
+  render() {
     return (
       <Wrapper>
-        <Navbar title={score + scoreVal}/>
+        <Navbar />
         <Hero />
           <Body>
-            <Cardbody />
+          {this.state.friends.map(friend => (
+
+            <Cardbody 
+              image = {friend.image}
+
+            />
+
+            ))}
           </Body>
         <Footer />
       </Wrapper>
