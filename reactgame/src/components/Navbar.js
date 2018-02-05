@@ -2,8 +2,9 @@ import React from "react";
 
 const styles = {
   navbarStyle: {
-    background: "#5133a4",
-    color: "white"
+    background: "#3b4f65",
+    color: "white",
+    boxShadow: " 3px 3px 4px 2px rgb(8,19,40)"
   },
   anchorStyle: {
     float: "center"
@@ -11,7 +12,7 @@ const styles = {
 };
 
 const Navbar = () => (
-  <nav style={styles.navbarStyle} className="navbar navbar-light bg-faded">Navbar
+  <nav style={styles.navbarStyle} className="navbar navbar-light bg-faded">Clicky Game
     <a style={styles.anchorStyle} className="">
       You guessed correctly
     </a>

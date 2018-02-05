@@ -2,12 +2,12 @@ import React from "react";
 
 const styles = {
   cardStyle: {
-    background: "#5133a4",
+    background: "#082c6d",
     color: "white",
     width: "170px",
     height: "170px",
     position: "relative",
-    float: ""
+    margin: "20px"
   },
   clickStyle: {
     float: "center"

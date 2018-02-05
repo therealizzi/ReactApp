@@ -2,11 +2,12 @@ import React from "react";
 
 const styles = {
   footer: {
-    background: "#5133a4",
+    background: "#3b4f65",
     color: "white",
-    height: "50px",
+    height: "30px",
     position: "relative",
-    float: ""
+    float: "",
+    boxShadow: " -3px -3px 10px 10px rgb(8,19,40)"
   },
   clickStyle: {
     float: "center"
