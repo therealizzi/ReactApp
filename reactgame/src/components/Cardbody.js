@@ -11,20 +11,30 @@ const styles = {
     boxShadow: " 3px 3px 4px 2px rgb(8,19,40)"
   },
   clickStyle: {
-    float: "center"
+    // float: "center"
   }
 };
 
-var attempt = 0;
+export default class Cardbody extends React.Component {
+  
+  constructor() {
+    super()
+    this.state = {count: 3};
+  }
 
-const Cardbody = props => (
-  	<div >
-    	<button onClick={() => {attempts: attempt++}} className="remove" style={styles.cardStyle}>
-	    	<div className="img-container" > Card Body
-    	  		<img alt={props.name} src={props.image} />
-        </div>
-      </button>
-  	</div>
-);
+  onButtonPress = (type) => {
+    this.setState(prevState => { 
+      return { count: type == 'add' ? prevState.count + 1 : prevState.count -1 }
+    })
+  }
 
-export default Cardbody;
+  render() {
+    return (
+    	<div >
+        <div className="img-container" >Count: {this.state.count}</div>
+      	<button onClick={this.onButtonPress.bind(this, 'add')} value='add' className="remove" style={styles.cardStyle}>Increment</button>
+        <button onClick={this.onButtonPress.bind(this, 'sub')} value='sub' className="remove" style={styles.cardStyle}>Decrement</button>
+   	</div>
+    )
+  }
+}

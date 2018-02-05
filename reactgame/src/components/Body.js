@@ -3,7 +3,8 @@ import { Container } from "reactstrap";
 
 const styles = {
   body: {
-  	height: "125%"
+  	height: "125%",
+  	width: "80%"
   },
   anchorStyle: {
     float: "center"
