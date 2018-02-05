@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
-import Jumbotron from './components/Jumbotron';
+import Hero from './components/Hero';
 import Body from './components/Body';
 import Cardbody from './components/Cardbody';
 import Footer from './components/Footer';
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Navbar></Navbar>
-        <Jumbotron></Jumbotron>
+        <Hero></Hero>
         <Body>
           <Cardbody>
           </Cardbody>

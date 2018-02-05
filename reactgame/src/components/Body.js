@@ -1,9 +1,19 @@
 import React from "react";
+import { Container } from "reactstrap";
+
+const styles = {
+  body: {
+  	height: "125%"
+  },
+  anchorStyle: {
+    float: "center"
+  }
+};
 
 const Body = (props) => (
-  <div>
+  <Container style={styles.body}>
       {props.children}
-  </div>
+  </Container>
 );
 
 export default Body;
