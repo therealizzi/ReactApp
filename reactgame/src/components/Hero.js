@@ -9,6 +9,7 @@ const styles = {
     backgroundSize: "110%"
   },
   letters: {
+    marginTop: "20px",
   	color: "white",
   	textAlign: "center"
   }

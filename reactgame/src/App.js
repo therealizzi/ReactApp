@@ -10,15 +10,17 @@ import Footer from './components/Footer';
 
 class App extends Component {
   render() {
+    const score = "You're score is: "
+    const scoreVal = "5"
+
     return (
       <Wrapper>
-        <Navbar></Navbar>
-        <Hero></Hero>
-        <Body>
-          <Cardbody>
-          </Cardbody>
-        </Body>
-        <Footer></Footer>
+        <Navbar title={score + scoreVal}/>
+        <Hero />
+          <Body>
+            <Cardbody />
+          </Body>
+        <Footer />
       </Wrapper>
     );
   }
