@@ -12,6 +12,7 @@ import friends from './components/friends.json';
 let score = 0;
 let highscore = 0;
 let clickedImg = [];
+let headline = "Click to play!";
 
 class App extends Component {
 
@@ -23,7 +24,8 @@ class App extends Component {
   state = {
     friends,
     score,
-    highscore
+    highscore,
+    headline
   };
 
   shuffle() {
@@ -40,13 +42,18 @@ class App extends Component {
   }  
 
   gameLogic(id) {
-    console.log(id);
-    console.log("friends.id" + this.state.id);
     for (let i=0; i<clickedImg.length; i++){
       if (friends.id === clickedImg[i]) {
-        this.setState({ score: 0});
+        this.setState({ 
+          score: 0,
+          headline: "You already guessed that!"
+        });
       } 
       else {
+        this.setState({
+          score: this.state.score + 1,
+          headline: "You got this!"
+        })
         clickedImg.push(this.state.friends.id);
       }
     }
@@ -55,14 +62,16 @@ class App extends Component {
   handleClick(id) {
     this.shuffle();
     this.gameLogic(id);
-    this.setState({ score: this.state.score + 1 });
-    this.setState({ highscore: this.state.score + 1});
+    this.setState({ 
+      score: this.state.score + 1,
+      highscore: this.state.score + 1
+     });
   }
 
   render() {
     return (
       <Wrapper>
-        <Navbar tries = {this.state.score} highscore = {this.state.highscore}/>
+        <Navbar tries = {this.state.score} headline = {this.state.headline} highscore = {this.state.highscore}/>
         <Hero />
           <Body>
           {this.state.friends.map(friend => (

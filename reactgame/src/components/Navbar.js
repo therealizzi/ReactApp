@@ -16,7 +16,7 @@ const styles = {
 
 const Navbar = (props) => (
   <nav style={styles.navbarStyle} className="navbar navbar-light bg-faded">Clicky Game
-    <a style={styles.anchorStyle} className="">
+    <a style={styles.anchorStyle} className=""> {props.headline}
     </a>
     <span>Score: {props.tries} | Top Score: {props.highscore}</span>
   </nav>
