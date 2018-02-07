@@ -11,8 +11,20 @@ import friends from './components/friends.json';
 
 let score = 0;
 let highscore = 0;
+let clickedImg = [];
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  state = {
+    friends,
+    score,
+    highscore
+  };
 
   shuffle() {
       // shuffles the friends
@@ -27,24 +39,25 @@ class App extends Component {
     return friends;
   }  
 
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
+  gameLogic(id) {
+    console.log(id);
+    console.log("friends.id" + this.state.id);
+    for (let i=0; i<clickedImg.length; i++){
+      if (friends.id === clickedImg[i]) {
+        this.setState({ score: 0});
+      } 
+      else {
+        clickedImg.push(this.state.friends.id);
+      }
+    }
   }
 
-  handleClick() {
+  handleClick(id) {
     this.shuffle();
+    this.gameLogic(id);
     this.setState({ score: this.state.score + 1 });
-    console.log('Click happened');
-    console.log(this.state.score);
     this.setState({ highscore: this.state.score + 1});
   }
-
-  state = {
-    friends,
-    score,
-    highscore
-  };
 
   render() {
     return (
@@ -53,7 +66,7 @@ class App extends Component {
         <Hero />
           <Body>
           {this.state.friends.map(friend => (
-            <Cardbody image = {friend.image} scoreadd = {this.handleClick} />
+            <Cardbody image = {friend.image} id = {friend.id} scoreadd = {this.handleClick} />
             ))}
           </Body>
         <Footer />

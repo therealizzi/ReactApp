@@ -17,7 +17,7 @@ const styles = {
 };
 
 const Cardbody = props => (
-    <button style={styles.cardStyle} onClick={props.scoreadd} >
+    <button style={styles.cardStyle} id={props.id} onClick={props.scoreadd} >
       <img style={styles.imgStyle} src={props.image} />
     </button>
 )
