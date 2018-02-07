@@ -8,16 +8,16 @@ const styles = {
     height: "170px",
     position: "relative",
     margin: "25px",
-    boxShadow: " 3px 3px 4px 2px rgb(8,19,40)"
+    boxShadow: "1px 1px 1px -1px rgb(8,19,40)"
   },
   imgStyle: {
-    width: "60%",
-    height: "80%"
+    width: "70%",
+    height: "90%"
   }
 };
 
 const Cardbody = props => (
-    <button style={styles.cardStyle} >
+    <button style={styles.cardStyle} onClick={props.scoreadd} >
       <img style={styles.imgStyle} src={props.image} />
     </button>
 )
