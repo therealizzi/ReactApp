@@ -9,11 +9,6 @@ import Cardbody from './components/Cardbody';
 import Footer from './components/Footer';
 import friends from './components/friends.json';
 
-let score = 0;
-let highscore = 0;
-let clickedImg = [];
-let headline = "Click to play!";
-
 class App extends Component {
 
   constructor(props) {
@@ -23,9 +18,10 @@ class App extends Component {
 
   state = {
     friends,
-    score,
-    highscore,
-    headline
+    score: 0,
+    highscore: 0,
+    clickedImg: [],
+    headline: "Click to play!"
   };
 
   shuffle() {
@@ -42,30 +38,31 @@ class App extends Component {
   }  
 
   gameLogic(id) {
-    for (let i=0; i<clickedImg.length; i++){
-      if (friends.id === clickedImg[i]) {
-        this.setState({ 
-          score: 0,
-          headline: "You already guessed that!"
-        });
-      } 
-      else {
+    console.log(id);
+    if(this.state.clickedImg.indexOf(id) !== -1) {
+    let hs = this.state.highscore < this.state.score ? this.state.score : this.state.highscore
+     this.setState({
+        score: 0,
+        clickedImg: [],
+        headline: "You lose!",
+        highscore: hs
+      })
+    }
+    else{
+        this.state.clickedImg.push(id);
+        let score = this.state.score + 1;
+        let hs = this.state.highscore < score ? score : this.state.highscore
         this.setState({
-          score: this.state.score + 1,
-          headline: "You got this!"
+          score: score,
+          headline: "Keep playing!",
+          highscore: hs
         })
-        clickedImg.push(this.state.friends.id);
-      }
     }
   }
 
   handleClick(id) {
     this.shuffle();
     this.gameLogic(id);
-    this.setState({ 
-      score: this.state.score + 1,
-      highscore: this.state.score + 1
-     });
   }
 
   render() {
